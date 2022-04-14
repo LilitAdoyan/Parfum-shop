@@ -5,7 +5,7 @@ import fireDB from '../fireConfig';
 import {useNavigate} from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 function Homepage() {
-const dispatch=useDispatch()
+const dispatch=useDispatch();
 const [parfums, setParfums]=useState([]);
 const navigate=useNavigate();
 const {cartItems}=useSelector(state=>state.cartReducer)

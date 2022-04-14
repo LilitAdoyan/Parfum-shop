@@ -24,7 +24,7 @@ function Header() {
             {console.log(cartItems.length)}
           </li>
           <li className="nav-item">
-            <Link className="nav-link" to="/">Cart {cartItems.length}</Link>
+            <Link className="nav-link" to="/cart">Cart {cartItems.length}</Link>
           </li>
         </ul>
       </div>

@@ -16,6 +16,14 @@ export const cartReducer=(state=initialState, action)=>{
         
         
         }
+        case 'DELETE_FROM_CART':{
+            return {
+                ...state,
+                cartItems:state.cartItems.filter(obj=>obj.id!==action.payload.id)
+            }
+        
+        
+        }
         default: return state;
     }
 }
