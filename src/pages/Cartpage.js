@@ -52,7 +52,7 @@ function Cartpage() {
         </h1>
       </div>
       <div classname='d-flex justify-content-end'>
-        <button className='total-amount'>
+        <button className='total-amount mt-5'>
           Place order
         </button>
       </div>
