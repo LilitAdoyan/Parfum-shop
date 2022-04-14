@@ -39,3 +39,13 @@
 .product-info-img{
     height: 70vh;
 }
+
+.total-amount{
+    background-color: aquamarine;
+    border-radius: 50px;
+    font-weight: bold;
+}
+.total-amount:hover{
+    background-color: #003F5C !important ;
+color: white;
+}
