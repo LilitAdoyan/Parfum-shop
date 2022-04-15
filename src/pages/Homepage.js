@@ -4,16 +4,20 @@ import { collection, addDoc, getDocs } from "firebase/firestore";
 import fireDB from '../fireConfig';
 import {useNavigate} from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import Loader from '../components/Loader';
 function Homepage() {
 const dispatch=useDispatch();
 const [parfums, setParfums]=useState([]);
+const [loading, setLoading]=useState(false);
 const navigate=useNavigate();
 const {cartItems}=useSelector(state=>state.cartReducer)
 useEffect(()=>{
   getData();
 },[]);
   async function getData(){
+    
     try {
+      setLoading(true);
     const users= await getDocs(collection(fireDB, "parfums"));
     const parfumsArray=[]
 users.forEach((doc) => {
@@ -22,11 +26,15 @@ users.forEach((doc) => {
     ...doc.data(),  
   };
   parfumsArray.push(obj);
+  setLoading(false);
+
  
 });
 setParfums(parfumsArray)
     } catch (error) {
       console.log(error);
+      setLoading(false);
+
     }
    }
 const addToCart=(parfum)=>{
@@ -38,7 +46,7 @@ useEffect(()=>{
 },[cartItems])
 
 return (
-    <Layout>
+    <Layout loading={loading}>
       <div className='container'>
         <div className='row justify-content-center'>
         {parfums.map((parfum)=>{return (<div className='col-md-4'>
