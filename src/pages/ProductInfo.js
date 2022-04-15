@@ -7,6 +7,8 @@ import { useParams } from 'react-router';
 
 function ProductInfo() {
 const [parfum, setParfum]=useState();
+const [loading, setLoading]=useState(false);
+
 const params=useParams();
   useEffect(()=>{
     getData();
@@ -14,16 +16,20 @@ const params=useParams();
 
   async function getData(){
     try {
+      setLoading(true);
     const parfumTemp= await getDoc(doc(fireDB, "parfums", params.parfumid));
     
 setParfum(parfumTemp.data());
+setLoading(false)
     } catch (error) {
       console.log(error);
+      setLoading(false)
+
     }
    }
  
   return (
-    <Layout><div className='container'>
+    <Layout loading={loading}><div className='container'>
 <div className='row justify-content-center'>
   <div className='col-md-8'>    {parfum&&(<div><p><b>{parfum.name}</b></p>
     <img src={parfum.imageURL} alt='' className='product-info-img'/>

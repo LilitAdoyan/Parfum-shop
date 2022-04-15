@@ -45,3 +45,7 @@ button:hover{
     transform: translate(-50%, -50%);
 
 }
+.spinner-border{
+    height: 100px;
+    width: 100px;
+}
