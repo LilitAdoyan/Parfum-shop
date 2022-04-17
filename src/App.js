@@ -7,6 +7,7 @@ import ProductInfo from './pages/ProductInfo';
 import Cartpage from './pages/Cartpage';
 import './stylesheets/layout.css';
 import './stylesheets/parfums.css';
+import './stylesheets/authentication.css';
 function App() {
   return (
     <div className="App">

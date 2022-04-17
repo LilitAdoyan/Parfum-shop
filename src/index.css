@@ -8,6 +8,9 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+body html{
+  overflow-x: hidden !important;
+}
 code {
   font-family: 'Montserrat', sans-serif;
 }

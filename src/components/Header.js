@@ -4,6 +4,7 @@ import {FaBars, FaCartPlus} from 'react-icons/fa';
 import {useSelector} from 'react-redux';
 function Header() {
   const {cartItems}=useSelector(state=>state.cartReducer)
+  
   return (
     <div className='header'><nav className="navbar navbar-expand-lg navbar-light bg-light">
     <div className="container-fluid">
@@ -21,7 +22,7 @@ function Header() {
           </li>
           <li className="nav-item">
             <Link className="nav-link" to="/">Logout</Link>
-            {console.log(cartItems.length)}
+          
           </li>
           <li className="nav-item">
             <Link className="nav-link" to="/cart"><FaCartPlus/> {cartItems.length}</Link>

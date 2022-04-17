@@ -10,7 +10,9 @@ const dispatch=useDispatch();
 const [parfums, setParfums]=useState([]);
 const [loading, setLoading]=useState(false);
 const navigate=useNavigate();
-const {cartItems}=useSelector(state=>state.cartReducer)
+const {cartItems}=useSelector(state=>state.cartReducer);
+const {searchKey, setSearchKey}=useState('');
+const {filterType, setFilterType}=useState('');
 useEffect(()=>{
   getData();
 },[]);
@@ -48,6 +50,22 @@ useEffect(()=>{
 return (
     <Layout loading={loading}>
       <div className='container'>
+        <div className='d-flex w-50'>
+          <input type='text' 
+          value={searchKey}
+          onChange={(e)=>{
+            setSearchKey(e.target.value)
+          }}
+          className='form-control' placeholder='search-items'/>
+          <select className='form-control mt-3'    value={filterType} onChange={(e)=>{
+            setFilterType(e.target.value)
+          }}>
+            <option value=''>All</option>
+            <option value="men's">For men</option>
+            <option value='ladies'>For Women</option>  
+            <option value='unisex'>Uni</option>
+          </select>
+        </div>
         <div className='row justify-content-center'>
         {parfums.map((parfum)=>{return (<div className='col-md-4'>
           <div className='m-3 p-1 product position-relative'>
